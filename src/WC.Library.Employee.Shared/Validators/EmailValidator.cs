@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using WC.Library.Employee.Shared.ConstantsRegex;
 using WC.Library.Shared.Constants;
 
 namespace WC.Library.Employee.Shared.Validators;
@@ -22,17 +23,19 @@ public class EmailValidator : AbstractValidator<string>
             .WithName(propertyName);
 
         RuleFor(x => x)
-            .Matches(@"^\S*$")
+            .Matches(CommonConstantsRegex.GenericNoWhitespaceRegex)
             .WithName(propertyName);
 
         RuleFor(x => x)
-            .EmailAddress()
-            .WithName(propertyName);
+            .Must(x => x.IndexOf(CommonConstants.GenericAtSymbol) != -1 && x.IndexOf(CommonConstants.GenericAtSymbol) ==
+                x.LastIndexOf(CommonConstants.GenericAtSymbol))
+            .WithName(propertyName)
+            .WithMessage($"{propertyName} must contain exactly one '@' symbol.");
 
         RuleFor(x => x)
             .Custom((email, context) =>
             {
-                var domain = email.Split('@').LastOrDefault();
+                var domain = email.Split(CommonConstants.GenericAtSymbol).LastOrDefault();
 
                 var allowedDomains = new List<string>
                 {
