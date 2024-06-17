@@ -6,8 +6,6 @@ namespace WC.Library.Employee.Shared.Validators;
 
 public class NameValidator : AbstractValidator<string>
 {
-    private const string ContainsNoNumbersOrSpecialCharactersRegex = "^[^0-9!@#$%^&*()_+=-]*$";
-
     public NameValidator(string propertyName)
     {
         ClassLevelCascadeMode = CascadeMode.Stop;
@@ -32,10 +30,5 @@ public class NameValidator : AbstractValidator<string>
             .WithName(propertyName)
             .WithMessage(
                 $"{propertyName} must start with an uppercase letter followed by lowercase letters, all in Cyrillic.");
-
-        RuleFor(x => x)
-            .Matches(ContainsNoNumbersOrSpecialCharactersRegex)
-            .WithName(propertyName)
-            .WithMessage($"{propertyName} cannot contain numbers or special characters.");
     }
 }
