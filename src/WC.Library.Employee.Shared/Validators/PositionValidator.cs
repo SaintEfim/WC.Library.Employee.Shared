@@ -21,9 +21,7 @@ public class PositionValidator : AbstractValidator<string>
             .WithName(propertyName);
 
         RuleFor(x => x)
-            .Matches(CommonConstantsRegex.GenericContainsCyrillicNameRegex)
-            .WithName(propertyName)
-            .WithMessage(
-                $"{propertyName} must start with an uppercase letter followed by lowercase letters, all in Cyrillic.");
+            .Matches(@"^[А-ЯЁ][\u0400-\u04FF\s.,!?;:()\-]*$")
+            .WithName(propertyName);
     }
 }

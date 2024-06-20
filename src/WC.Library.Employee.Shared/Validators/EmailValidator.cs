@@ -24,7 +24,8 @@ public class EmailValidator : AbstractValidator<string>
 
         RuleFor(x => x)
             .Matches(CommonConstantsRegex.GenericNoWhitespaceRegex)
-            .WithName(propertyName);
+            .WithName(propertyName)
+            .WithMessage($"{propertyName} cannot contain whitespace characters.");
 
         RuleFor(x => x)
             .Must(x => x.IndexOf(CommonConstants.GenericAtSymbol) != -1 && x.IndexOf(CommonConstants.GenericAtSymbol) ==
