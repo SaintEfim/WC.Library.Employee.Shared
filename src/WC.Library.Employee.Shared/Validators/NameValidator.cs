@@ -14,21 +14,18 @@ public class NameValidator : AbstractValidator<string>
 
         RuleFor(x => x)
             .NotEmpty()
-            .WithName(propertyName)
-            .WithMessage($"{propertyName} cannot be empty.");
+            .WithName(propertyName);
 
         RuleFor(x => x)
             .MinimumLength(CommonConstants.GenericNameMinLength)
-            .WithName(propertyName)
-            .WithMessage($"{propertyName} must be at least 2 characters long.");
+            .WithName(propertyName);
 
         RuleFor(x => x)
             .MaximumLength(CommonConstants.GenericNameMaxLength)
-            .WithName(propertyName)
-            .WithMessage($"{propertyName} must be at most 50 characters long.");
+            .WithName(propertyName);
 
         RuleFor(x => x)
-            .Matches(CommonConstantsRegex.GenericContainsCyrillicNameRegex)
+            .Matches("^[А-ЯЁ][а-яё]*$")
             .WithName(propertyName)
             .WithMessage(
                 $"{propertyName} must start with an uppercase letter followed by lowercase letters, all in Cyrillic.");
