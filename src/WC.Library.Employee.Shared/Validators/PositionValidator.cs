@@ -7,6 +7,8 @@ public class PositionValidator : AbstractValidator<string>
 {
     public PositionValidator(string propertyName)
     {
+        ClassLevelCascadeMode = CascadeMode.Stop;
+
         RuleFor(x => x)
             .NotEmpty()
             .WithName(propertyName);
