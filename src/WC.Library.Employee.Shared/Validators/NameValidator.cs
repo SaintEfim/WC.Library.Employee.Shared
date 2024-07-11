@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using WC.Library.Employee.Shared.ConstantsRegex;
 using WC.Library.Shared.Constants;
 
 namespace WC.Library.Employee.Shared.Validators;

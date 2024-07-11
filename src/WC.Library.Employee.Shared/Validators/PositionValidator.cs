@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using WC.Library.Employee.Shared.ConstantsRegex;
 using WC.Library.Shared.Constants;
 
 namespace WC.Library.Employee.Shared.Validators;
@@ -8,6 +7,8 @@ public class PositionValidator : AbstractValidator<string>
 {
     public PositionValidator(string propertyName)
     {
+        ClassLevelCascadeMode = CascadeMode.Stop;
+
         RuleFor(x => x)
             .NotEmpty()
             .WithName(propertyName);
