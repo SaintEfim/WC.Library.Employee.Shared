@@ -2,11 +2,8 @@
 
 public class AuthenticationFailedException : Exception
 {
-    public AuthenticationFailedException()
-    {
-    }
-
-    public AuthenticationFailedException(string message) : base(message)
+    public AuthenticationFailedException(string message)
+        : base(message)
     {
     }
 }
