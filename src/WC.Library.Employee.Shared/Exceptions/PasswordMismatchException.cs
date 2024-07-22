@@ -2,7 +2,8 @@
 
 public class PasswordMismatchException : Exception
 {
-    public PasswordMismatchException(string message)
+    public PasswordMismatchException(
+        string message)
         : base(message)
     {
     }

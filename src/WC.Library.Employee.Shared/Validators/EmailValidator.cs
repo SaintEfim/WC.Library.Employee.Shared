@@ -4,7 +4,8 @@ namespace WC.Library.Employee.Shared.Validators;
 
 public class EmailValidator : AbstractValidator<string>
 {
-    public EmailValidator(string propertyName)
+    public EmailValidator(
+        string propertyName)
     {
         ClassLevelCascadeMode = CascadeMode.Stop;
 

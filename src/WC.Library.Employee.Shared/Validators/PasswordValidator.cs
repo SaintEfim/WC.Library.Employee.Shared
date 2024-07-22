@@ -4,7 +4,8 @@ namespace WC.Library.Employee.Shared.Validators;
 
 public class PasswordValidator : AbstractValidator<string>
 {
-    public PasswordValidator(string propertyName)
+    public PasswordValidator(
+        string propertyName)
     {
         ClassLevelCascadeMode = CascadeMode.Stop;
 

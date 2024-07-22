@@ -2,7 +2,8 @@
 
 public class RegistrationFailedException : Exception
 {
-    public RegistrationFailedException(string message)
+    public RegistrationFailedException(
+        string message)
         : base(message)
     {
     }
