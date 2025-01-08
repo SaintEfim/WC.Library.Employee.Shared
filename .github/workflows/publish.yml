@@ -54,7 +54,7 @@ jobs:
 
       - name: Get latest version for WC.Library.Employee.Shared
         if: env.should_publish == 'true'
-        id: get-version-employee.shared
+        id: get-version-employee-shared
         run: |
           PACKAGE_ID="wc.library.employee.shared"
           PACKAGE_VERSION=$(curl -s https://api.nuget.org/v3-flatcontainer/${PACKAGE_ID}/index.json | jq -r '.versions[-1]')
