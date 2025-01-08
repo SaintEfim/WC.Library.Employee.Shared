@@ -68,12 +68,12 @@ jobs:
           fi
 
           echo "New version for $PACKAGE_ID: $NEW_VERSION"
-          echo "employee.shared_version=$NEW_VERSION" >> $GITHUB_ENV
+          echo "employee_version=$NEW_VERSION" >> $GITHUB_ENV
 
       - name: Build and pack WC.Library.Employee.Shared
         if: env.should_publish == 'true'
         run: |
-          dotnet pack src/WC.Library.Employee.Shared/WC.Library.Employee.Shared.csproj -c Release -o ./out /p:Version=${{ env.employee.shared_version }}
+          dotnet pack src/WC.Library.Employee.Shared/WC.Library.Employee.Shared.csproj -c Release -o ./out /p:Version=${{ env.employee_version }}
 
       - name: Publish packages to NuGet
         if: env.should_publish == 'true'
