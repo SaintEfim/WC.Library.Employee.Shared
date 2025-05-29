@@ -14,7 +14,7 @@ public class PasswordValidator : AbstractValidator<string>
             .WithName(propertyName);
 
         RuleFor(x => x)
-            .Matches(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$")
+            .Matches(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])(?!.*[А-Яа-яЁё]).{8,}$")
             .WithName(propertyName);
     }
 }
